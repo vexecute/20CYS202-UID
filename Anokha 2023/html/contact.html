@@ -248,14 +248,60 @@
         <p class="p3">your questions</p><br><br>
     </div>
     <div style="text-align: center;margin-top: 50">
-        <form>
-        <input type="text" placeholder="Name"><br><br>
-        <input type="email" placeholder="Email"><br><br>
-        <input type="text" placeholder="Subject"><br><br>
-        <input type="text" placeholder="Your message"><br><br><br>
-        <input type="submit" placeholder="Submit"> 
+        <form name="hello" id="hello">
+        <input type="text" name="name" id= "name" placeholder="Name" required><br><br>
+        <input type="email" name="email" id= "email" placeholder="Email" required><br><br>
+        <input type="text" name="sub" id= "sub" placeholder="Subject" required><br><br>
+        <input type="text" name="msg" id= "msg" placeholder="Your message" required><br><br><br>
+        <input type="submit" onclick=demo() placeholder="Submit"> 
         </form>
     </div>
+    <script>
+        function demo(){
+        let a;
+        let b;    
+        let c;
+        let d;
+        a=document.hello.name.value;
+        b=document.hello.email.value;
+        c=document.hello.sub.value;
+        d=document.hello.msg.value;
+        var validRegex = /^[a-zA-Z0-9]+@[a-zA-Z]+(\.[a-zA-Z0-9-])/;
+        if(a=="")
+                {
+                    alert("name must be filled out");
+                    return false;
+                }
+        if(b=="")
+            {
+                alert("email must be filled out");
+                return false;
+            }
+        if(c=="")
+        {
+            alert("subject must be filled out");
+            return false;
+        }
+        if(d=="")
+        {
+            alert("message must be filled out");
+        }
+        if (b.match != validRegex)
+            {
+                alert("Invalid email address");
+                return false;
+            }
+        else
+            {
+                alert("Your response has been submitted");
+                return true;
+                window.location.reload();
+            }
+
+        }
+        
+
+    </script>
     
     </body>
     </html>
